@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Cup 2026 — Dự Đoán Kết Quả</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--g:#1a7a45;--g2:#27ae6f;--g3:#0f5430;--gold:#d4a017;--gold2:#f0c040;--bg:#0a1628;--bg2:#0f1f3d;--bg3:#162545;--card:#1a2e52;--card2:#1e3560;--b:rgba(255,255,255,.08);--b2:rgba(255,255,255,.15);--t:#e8edf5;--t2:#8fa3c8;--t3:#5a7299;--acc:#3b82f6;--acc2:#60a5fa;--ok:#22c55e;--err:#ef4444;--warn:#f59e0b;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--t);font-family:'DM Sans',sans-serif;font-size:15px;min-height:100vh;}
+  h1,h2,h3{font-family:'Bebas Neue',sans-serif;letter-spacing:1px;}
+  .hd{background:linear-gradient(135deg,var(--g3),var(--bg2));border-bottom:1px solid var(--b2);padding:0 18px;display:flex;align-items:center;gap:10px;height:54px;position:sticky;top:0;z-index:100;}
+  .hl{font-size:24px;} .ht{font-size:19px;color:white;}
+  .hn{display:flex;gap:3px;margin-left:auto;flex-wrap:wrap;}
+  .nb{padding:5px 11px;border-radius:6px;border:1px solid var(--b2);background:transparent;color:var(--t2);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;transition:all .15s;}
+  .nb:hover{background:var(--card);color:var(--t);}  .nb.on{background:var(--g);border-color:var(--g);color:white;}
+  .wrap{max-width:1100px;margin:0 auto;padding:18px 12px;}
+  .page{display:none;} .page.on{display:block;}
+  .card{background:var(--card);border:1px solid var(--b);border-radius:11px;padding:16px;}
+  .ch{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px;}
+  .ct{font-size:16px;color:white;}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
+  .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;}
+  .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;}
+  .sc{background:var(--card2);border:1px solid var(--b);border-radius:9px;padding:13px;text-align:center;}
+  .sc .n{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--gold2);}
+  .sc .l{font-size:11px;color:var(--t2);margin-top:1px;}
+  .btn{padding:7px 15px;border-radius:7px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;transition:all .15s;display:inline-flex;align-items:center;gap:5px;}
+  .bp{background:var(--g);color:white;} .bp:hover{background:var(--g2);}
+  .bs{background:var(--card2);color:var(--t);border:1px solid var(--b2);} .bs:hover{background:var(--bg3);}
+  .bd{background:var(--err);color:white;}
+  .bg2{background:var(--gold);color:#1a1000;} .bg2:hover{background:var(--gold2);}
+  .bsm{padding:4px 9px;font-size:11px;}
+  input,select{background:var(--bg3);border:1px solid var(--b2);border-radius:7px;color:var(--t);font-family:'DM Sans',sans-serif;font-size:13px;padding:8px 10px;width:100%;outline:none;transition:border-color .15s;}
+  input:focus,select:focus{border-color:var(--acc);}
+  select option{background:var(--bg3);}
+  label{font-size:12px;color:var(--t2);display:block;margin-bottom:4px;}
+  .fg{margin-bottom:11px;} .fr{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+  .bx{padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600;}
+  .bok{background:rgba(34,197,94,.15);color:var(--ok);} .berr{background:rgba(239,68,68,.15);color:var(--err);}
+  .bgold{background:rgba(212,160,23,.2);color:var(--gold2);} .bacc{background:rgba(59,130,246,.15);color:var(--acc2);}
+  .bgray{background:rgba(255,255,255,.08);color:var(--t2);} .bwarn{background:rgba(245,158,11,.15);color:var(--warn);}
+  .bpur{background:rgba(168,85,247,.15);color:#c084fc;} .bpink{background:rgba(236,72,153,.15);color:#f472b6;}
+  table{width:100%;border-collapse:collapse;}
+  th{text-align:left;padding:8px 10px;font-size:11px;color:var(--t3);font-weight:600;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--b);}
+  td{padding:10px 10px;border-bottom:1px solid var(--b);font-size:13px;vertical-align:middle;}
+  tr:last-child td{border-bottom:none;} tr:hover td{background:rgba(255,255,255,.02);}
+  .mc{background:var(--card2);border:1px solid var(--b);border-radius:8px;padding:11px 13px;margin-bottom:7px;}
+  .mh{display:flex;align-items:center;gap:6px;margin-bottom:8px;flex-wrap:wrap;}
+  .mdt{font-size:10px;color:var(--t2);margin-left:auto;}
+  .mteams{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:8px;}
+  .tn{font-size:14px;font-weight:600;color:white;min-width:100px;display:flex;align-items:center;gap:5px;}
+  .tn.home{text-align:right;justify-content:flex-end;} .tn.away{text-align:left;}
+  .mvs{font-family:'Bebas Neue',sans-serif;font-size:17px;color:var(--t3);min-width:32px;text-align:center;}
+  .pbtns{display:flex;gap:6px;}
+  .pb{flex:1;padding:6px;border-radius:7px;border:2px solid var(--b2);background:transparent;color:var(--t2);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;transition:all .15s;text-align:center;}
+  .pb:hover{border-color:var(--acc2);color:var(--acc2);}
+  .pb.sh{border-color:var(--ok);background:rgba(34,197,94,.1);color:var(--ok);}
+  .pb.sd{border-color:var(--warn);background:rgba(245,158,11,.1);color:var(--warn);}
+  .pb.sa{border-color:var(--err);background:rgba(239,68,68,.1);color:var(--err);}
+  .tabs{display:flex;gap:2px;border-bottom:1px solid var(--b);margin-bottom:16px;flex-wrap:wrap;}
+  .tab{padding:8px 13px;border:none;background:transparent;color:var(--t2);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s;}
+  .tab.on{color:var(--gold2);border-bottom-color:var(--gold2);} .tab:hover{color:var(--t);}
+  .mo{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:200;align-items:center;justify-content:center;}
+  .mo.on{display:flex;}
+  .md{background:var(--card);border:1px solid var(--b2);border-radius:13px;padding:20px;min-width:360px;max-width:520px;width:90vw;max-height:90vh;overflow-y:auto;}
+  .mdh{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+  .mdt2{font-size:17px;color:white;}
+  .mdc{background:transparent;border:none;color:var(--t2);cursor:pointer;font-size:18px;}
+  .mdf{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;}
+  .pc{background:var(--card2);border:1px solid var(--b);border-radius:9px;padding:12px;}
+  .av{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:16px;color:white;flex-shrink:0;}
+  .tr1{background:linear-gradient(135deg,rgba(212,160,23,.2),rgba(240,192,64,.05));border:1px solid rgba(212,160,23,.4);}
+  .tr2{background:linear-gradient(135deg,rgba(192,192,192,.15),rgba(192,192,192,.05));border:1px solid rgba(192,192,192,.3);}
+  .tr3{background:linear-gradient(135deg,rgba(205,127,50,.15),rgba(205,127,50,.05));border:1px solid rgba(205,127,50,.3);}
+  .trow{display:flex;align-items:center;gap:10px;padding:10px 13px;border-radius:8px;margin-bottom:6px;}
+  .pbar{height:5px;background:var(--bg);border-radius:3px;overflow:hidden;}
+  .pfill{height:100%;background:var(--g);border-radius:3px;transition:width .3s;} .pfill.gold{background:var(--gold);}
+  .st{font-size:17px;color:white;margin-bottom:13px;}
+  .mt{margin-top:13px;} .tm{color:var(--t2);font-size:13px;}
+  .empty{text-align:center;padding:32px 14px;color:var(--t3);}
+  .empty .ei{font-size:40px;margin-bottom:8px;}
+  .alert{border-radius:7px;padding:10px 13px;font-size:12px;margin-bottom:13px;}
+  .ai{background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.3);color:var(--acc2);}
+  .aw{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);color:var(--warn);}
+  .as2{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);color:var(--ok);}
+  .ghead{background:var(--g3);padding:7px 13px;display:flex;align-items:center;justify-content:space-between;}
+  .gtitle{font-size:14px;color:white;font-family:'Bebas Neue',sans-serif;letter-spacing:1px;}
+  .gteams{font-size:10px;color:rgba(255,255,255,.55);}
+  .gsect{background:var(--card2);border:1px solid var(--b);border-radius:8px;overflow:hidden;margin-bottom:12px;}
+  @media(max-width:680px){.g2,.g3,.g4{grid-template-columns:1fr;}.fr{grid-template-columns:1fr;}.tn{min-width:70px;}}
+</style>
+</head>
+<body>
+<div class="hd">
+  <div class="hl">🏆</div>
+  <h1 class="ht">WORLD CUP 2026</h1>
+  <nav class="hn">
+    <button class="nb on" onclick="goPage('dashboard',this)">📊 Tổng quan</button>
+    <button class="nb" onclick="goPage('players',this)">👥 Người chơi</button>
+    <button class="nb" onclick="goPage('predict',this)">🎯 Dự đoán</button>
+    <button class="nb" onclick="goPage('ranking',this)">🥇 Xếp hạng</button>
+    <button class="nb" onclick="goPage('admin',this)">⚙️ Cập nhật KQ</button>
+  </nav>
+</div>
+
+<!-- DASHBOARD -->
+<div id="page-dashboard" class="page on wrap">
+  <div id="d-stats" class="g4" style="margin-bottom:13px"></div>
+  <div class="g2 mt">
+    <div class="card"><div class="ch"><h3 class="ct">🏅 Top người chơi</h3></div><div id="d-top3"></div></div>
+    <div class="card"><div class="ch"><h3 class="ct">⚽ Trận sắp diễn ra</h3></div><div id="d-upcoming"></div></div>
+  </div>
+  <div class="card mt"><div class="ch"><h3 class="ct">📈 Tiến độ giải</h3></div><div id="d-prog"></div></div>
+  <div class="card mt">
+    <div class="ch"><h3 class="ct">ℹ️ Thông tin giải</h3></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;font-size:12px;color:var(--t2)">
+      <div>📅 <strong style="color:var(--t)">11/6 – 19/7/2026</strong></div>
+      <div>🌍 <strong style="color:var(--t)">48 đội tuyển</strong></div>
+      <div>⚽ <strong style="color:var(--t)">104 trận đấu</strong></div>
+      <div>🇺🇸 <strong style="color:var(--t)">78 trận (Mỹ)</strong></div>
+      <div>🇨🇦 <strong style="color:var(--t)">13 trận (Canada)</strong></div>
+      <div>🇲🇽 <strong style="color:var(--t)">13 trận (Mexico)</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- PLAYERS -->
+<div id="page-players" class="page wrap">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:13px">
+    <h2 class="st" style="margin:0">👥 Người chơi</h2>
+    <button class="btn bp" onclick="openM('m-addp')">+ Thêm người chơi</button>
+  </div>
+  <div id="players-grid" class="g3"></div>
+</div>
+
+<!-- PREDICT -->
+<div id="page-predict" class="page wrap">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:13px;flex-wrap:wrap;gap:9px">
+    <h2 class="st" style="margin:0">🎯 Dự đoán</h2>
+    <div style="display:flex;align-items:center;gap:7px">
+      <label style="display:inline;margin:0;font-size:12px">Người dự đoán:</label>
+      <select id="pred-sel" style="width:160px" onchange="renderPredict()"><option value="">-- Chọn --</option></select>
+    </div>
+  </div>
+  <div class="tabs" id="pred-tabs">
+    <button class="tab on" onclick="setPredTab('all',this)">Tất cả</button>
+    <button class="tab" onclick="setPredTab('pending',this)">Chưa có KQ</button>
+    <button class="tab" onclick="setPredTab('done',this)">Đã có KQ</button>
+  </div>
+  <div id="pred-content"></div>
+</div>
+
+<!-- RANKING -->
+<div id="page-ranking" class="page wrap">
+  <h2 class="st">🥇 Bảng xếp hạng</h2>
+  <div class="tabs">
+    <button class="tab on" onclick="setRankTab('overall',this)">Tổng cộng</button>
+    <button class="tab" onclick="setRankTab('group',this)">Vòng bảng</button>
+    <button class="tab" onclick="setRankTab('knockout',this)">Vòng loại</button>
+    <button class="tab" onclick="setRankTab('pct',this)">Tỷ lệ đúng</button>
+  </div>
+  <div id="rank-content"></div>
+  <div class="card mt"><div class="ch"><h3 class="ct">🏆 Trao giải vòng bảng</h3></div><div id="prize-content"></div></div>
+</div>
+
+<!-- ADMIN -->
+<div id="page-admin" class="page wrap">
+  <h2 class="st">⚙️ Cập nhật kết quả thực tế</h2>
+  <div class="alert ai">💡 Nhấn "Cập nhật KQ" bên cạnh từng trận. Hệ thống tự động tính điểm cho tất cả người chơi.</div>
+  <div class="tabs" id="admin-tabs">
+    <button class="tab on" onclick="setAdminTab('group',this)">Vòng bảng</button>
+    <button class="tab" onclick="setAdminTab('r32',this)">Vòng 1/32</button>
+    <button class="tab" onclick="setAdminTab('r16',this)">Vòng 1/16</button>
+    <button class="tab" onclick="setAdminTab('qf',this)">Tứ kết</button>
+    <button class="tab" onclick="setAdminTab('sf',this)">Bán kết</button>
+    <button class="tab" onclick="setAdminTab('final',this)">CK + H3</button>
+  </div>
+  <div id="admin-content"></div>
+</div>
+
+<!-- MODAL: Add player -->
+<div id="m-addp" class="mo">
+  <div class="md">
+    <div class="mdh"><h3 class="mdt2">Thêm người chơi</h3><button class="mdc" onclick="closeM('m-addp')">✕</button></div>
+    <div class="fg"><label>Tên *</label><input id="np-name" type="text" placeholder="Tên người chơi..."></div>
+    <div class="fg"><label>Biệt danh</label><input id="np-nick" type="text" placeholder="(tùy chọn)"></div>
+    <div class="mdf"><button class="btn bs" onclick="closeM('m-addp')">Hủy</button><button class="btn bp" onclick="addPlayer()">✓ Thêm</button></div>
+  </div>
+</div>
+
+<!-- MODAL: Update result -->
+<div id="m-res" class="mo">
+  <div class="md">
+    <div class="mdh"><h3 class="mdt2">Cập nhật kết quả</h3><button class="mdc" onclick="closeM('m-res')">✕</button></div>
+    <div id="m-res-body"></div>
+    <div class="mdf"><button class="btn bs" onclick="closeM('m-res')">Hủy</button><button class="btn bg2" onclick="saveResult()">✓ Lưu & Tính điểm</button></div>
+  </div>
+</div>
+
+<script>
+// ── FLAGS ──────────────────────────────────────────────────
+const F={'Mexico':'🇲🇽','South Africa':'🇿🇦','Korea Republic':'🇰🇷','Czechia':'🇨🇿','Canada':'🇨🇦','Bosnia-Herzegovina':'🇧🇦','Qatar':'🇶🇦','Switzerland':'🇨🇭','Brazil':'🇧🇷','Morocco':'🇲🇦','Haiti':'🇭🇹','Scotland':'🏴󠁧󠁢󠁳󠁣󠁴󠁿','United States':'🇺🇸','Paraguay':'🇵🇾','Australia':'🇦🇺','Türkiye':'🇹🇷','Germany':'🇩🇪','Curaçao':'🏝️','Ivory Coast':'🇨🇮','Ecuador':'🇪🇨','Netherlands':'🇳🇱','Japan':'🇯🇵','Sweden':'🇸🇪','Tunisia':'🇹🇳','Belgium':'🇧🇪','Egypt':'🇪🇬','Iran':'🇮🇷','New Zealand':'🇳🇿','Spain':'🇪🇸','Cape Verde':'🇨🇻','Saudi Arabia':'🇸🇦','Uruguay':'🇺🇾','France':'🇫🇷','Senegal':'🇸🇳','Iraq':'🇮🇶','Norway':'🇳🇴','Argentina':'🇦🇷','Algeria':'🇩🇿','Austria':'🇦🇹','Jordan':'🇯🇴','Portugal':'🇵🇹','DR Congo':'🇨🇩','Uzbekistan':'🇺🇿','Colombia':'🇨🇴','England':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','Croatia':'🇭🇷','Ghana':'🇬🇭','Panama':'🇵🇦'};
+const fl=t=>F[t]||'🏳️';
+const GRPS={A:['Mexico','South Africa','Korea Republic','Czechia'],B:['Canada','Bosnia-Herzegovina','Qatar','Switzerland'],C:['Brazil','Morocco','Haiti','Scotland'],D:['United States','Paraguay','Australia','Türkiye'],E:['Germany','Curaçao','Ivory Coast','Ecuador'],F:['Netherlands','Japan','Sweden','Tunisia'],G:['Belgium','Egypt','Iran','New Zealand'],H:['Spain','Cape Verde','Saudi Arabia','Uruguay'],I:['France','Senegal','Iraq','Norway'],J:['Argentina','Algeria','Austria','Jordan'],K:['Portugal','DR Congo','Uzbekistan','Colombia'],L:['England','Croatia','Ghana','Panama']};
+const PH={group:'Vòng bảng',r32:'Vòng 1/32',r16:'Vòng 1/16',qf:'Tứ kết',sf:'Bán kết','3rd':'Hạng ba',final:'Chung kết'};
+const PTS={group:5,r32:10,r16:10,qf:10,sf:10,'3rd':10,final:10};
+const CLRS=['#e74c3c','#3498db','#2ecc71','#9b59b6','#f39c12','#1abc9c','#e67e22','#e91e8c','#00bcd4','#8bc34a','#ff5722','#607d8b'];
+const pc=i=>CLRS[i%CLRS.length];
+const ini=n=>n.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
+
+// ── BUILD MATCHES ──────────────────────────────────────────
+function buildMatches(){
+  const gm=[
+    ['Mexico','South Africa','A','2026-06-11','Estadio Azteca, Mexico City'],
+    ['Korea Republic','Czechia','A','2026-06-11','Estadio Akron, Guadalajara'],
+    ['Czechia','South Africa','A','2026-06-18','Mercedes-Benz Stadium, Atlanta'],
+    ['Mexico','Korea Republic','A','2026-06-18','Estadio Akron, Guadalajara'],
+    ['Czechia','Mexico','A','2026-06-24','Estadio Azteca, Mexico City'],
+    ['South Africa','Korea Republic','A','2026-06-24','Estadio BBVA, Monterrey'],
+    ['Canada','Bosnia-Herzegovina','B','2026-06-12','BMO Field, Toronto'],
+    ['Qatar','Switzerland','B','2026-06-13',"Levi's Stadium, Santa Clara"],
+    ['Switzerland','Bosnia-Herzegovina','B','2026-06-18','SoFi Stadium, Los Angeles'],
+    ['Canada','Qatar','B','2026-06-18','BC Place, Vancouver'],
+    ['Switzerland','Canada','B','2026-06-24','BC Place, Vancouver'],
+    ['Bosnia-Herzegovina','Qatar','B','2026-06-24','Lumen Field, Seattle'],
+    ['Brazil','Morocco','C','2026-06-13','MetLife Stadium, New Jersey'],
+    ['Haiti','Scotland','C','2026-06-13','Gillette Stadium, Boston'],
+    ['Scotland','Morocco','C','2026-06-19','Gillette Stadium, Boston'],
+    ['Brazil','Haiti','C','2026-06-19','Lincoln Financial Field, Philadelphia'],
+    ['Scotland','Brazil','C','2026-06-24','Hard Rock Stadium, Miami'],
+    ['Morocco','Haiti','C','2026-06-24','Mercedes-Benz Stadium, Atlanta'],
+    ['United States','Paraguay','D','2026-06-12','SoFi Stadium, Los Angeles'],
+    ['Australia','Türkiye','D','2026-06-13','BC Place, Vancouver'],
+    ['United States','Australia','D','2026-06-19','Lumen Field, Seattle'],
+    ['Türkiye','Paraguay','D','2026-06-19',"Levi's Stadium, Santa Clara"],
+    ['Türkiye','United States','D','2026-06-25','SoFi Stadium, Los Angeles'],
+    ['Paraguay','Australia','D','2026-06-25',"Levi's Stadium, Santa Clara"],
+    ['Germany','Curaçao','E','2026-06-14','NRG Stadium, Houston'],
+    ['Ivory Coast','Ecuador','E','2026-06-14','Lincoln Financial Field, Philadelphia'],
+    ['Germany','Ivory Coast','E','2026-06-20','BMO Field, Toronto'],
+    ['Ecuador','Curaçao','E','2026-06-20','Arrowhead Stadium, Kansas City'],
+    ['Curaçao','Ivory Coast','E','2026-06-25','Lincoln Financial Field, Philadelphia'],
+    ['Ecuador','Germany','E','2026-06-25','MetLife Stadium, New Jersey'],
+    ['Netherlands','Japan','F','2026-06-14',"AT&T Stadium, Dallas"],
+    ['Sweden','Tunisia','F','2026-06-14','Estadio BBVA, Monterrey'],
+    ['Netherlands','Sweden','F','2026-06-20','NRG Stadium, Houston'],
+    ['Tunisia','Japan','F','2026-06-20','Estadio BBVA, Monterrey'],
+    ['Japan','Sweden','F','2026-06-25',"AT&T Stadium, Dallas"],
+    ['Tunisia','Netherlands','F','2026-06-25','Arrowhead Stadium, Kansas City'],
+    ['Belgium','Egypt','G','2026-06-15','Lumen Field, Seattle'],
+    ['Iran','New Zealand','G','2026-06-15','SoFi Stadium, Los Angeles'],
+    ['Belgium','Iran','G','2026-06-21','SoFi Stadium, Los Angeles'],
+    ['New Zealand','Egypt','G','2026-06-21','BC Place, Vancouver'],
+    ['Egypt','Iran','G','2026-06-26','Lumen Field, Seattle'],
+    ['New Zealand','Belgium','G','2026-06-26','BC Place, Vancouver'],
+    ['Spain','Cape Verde','H','2026-06-15','Mercedes-Benz Stadium, Atlanta'],
+    ['Saudi Arabia','Uruguay','H','2026-06-15','Hard Rock Stadium, Miami'],
+    ['Spain','Saudi Arabia','H','2026-06-21','Mercedes-Benz Stadium, Atlanta'],
+    ['Uruguay','Cape Verde','H','2026-06-21','Hard Rock Stadium, Miami'],
+    ['Cape Verde','Saudi Arabia','H','2026-06-26','NRG Stadium, Houston'],
+    ['Uruguay','Spain','H','2026-06-26','Estadio Akron, Guadalajara'],
+    ['France','Senegal','I','2026-06-16','MetLife Stadium, New Jersey'],
+    ['Iraq','Norway','I','2026-06-16','Gillette Stadium, Boston'],
+    ['France','Iraq','I','2026-06-22','Lincoln Financial Field, Philadelphia'],
+    ['Norway','Senegal','I','2026-06-22','MetLife Stadium, New Jersey'],
+    ['Norway','France','I','2026-06-26','Gillette Stadium, Boston'],
+    ['Senegal','Iraq','I','2026-06-26','BMO Field, Toronto'],
+    ['Argentina','Algeria','J','2026-06-16','Arrowhead Stadium, Kansas City'],
+    ['Austria','Jordan','J','2026-06-16',"Levi's Stadium, Santa Clara"],
+    ['Argentina','Austria','J','2026-06-22',"AT&T Stadium, Dallas"],
+    ['Jordan','Algeria','J','2026-06-22',"Levi's Stadium, Santa Clara"],
+    ['Jordan','Argentina','J','2026-06-27',"AT&T Stadium, Dallas"],
+    ['Algeria','Austria','J','2026-06-27','Arrowhead Stadium, Kansas City'],
+    ['Portugal','DR Congo','K','2026-06-17','NRG Stadium, Houston'],
+    ['Uzbekistan','Colombia','K','2026-06-17','Estadio Azteca, Mexico City'],
+    ['Portugal','Uzbekistan','K','2026-06-23','NRG Stadium, Houston'],
+    ['Colombia','DR Congo','K','2026-06-23','Estadio Akron, Guadalajara'],
+    ['Colombia','Portugal','K','2026-06-27','Hard Rock Stadium, Miami'],
+    ['DR Congo','Uzbekistan','K','2026-06-27','Mercedes-Benz Stadium, Atlanta'],
+    ['England','Croatia','L','2026-06-17',"AT&T Stadium, Dallas"],
+    ['Ghana','Panama','L','2026-06-17','BMO Field, Toronto'],
+    ['England','Ghana','L','2026-06-23','Gillette Stadium, Boston'],
+    ['Panama','Croatia','L','2026-06-23','BMO Field, Toronto'],
+    ['Panama','England','L','2026-06-27','MetLife Stadium, New Jersey'],
+    ['Croatia','Ghana','L','2026-06-27','Lincoln Financial Field, Philadelphia'],
+  ];
+  const ko=[
+    ['r32','r32_1','Nhì A','Nhì B','2026-06-28','SoFi Stadium, Los Angeles'],
+    ['r32','r32_2','Nhất C','Nhì F','2026-06-29','NRG Stadium, Houston'],
+    ['r32','r32_3','Nhất E','3rd A/B/C/D/F','2026-06-29','Gillette Stadium, Boston'],
+    ['r32','r32_4','Nhất F','Nhì C','2026-06-29','Estadio BBVA, Monterrey'],
+    ['r32','r32_5','Nhì E','Nhì I','2026-06-30',"AT&T Stadium, Dallas"],
+    ['r32','r32_6','Nhất I','3rd C/D/F/G/H','2026-06-30','MetLife Stadium, New Jersey'],
+    ['r32','r32_7','Nhất A','3rd C/E/F/H/I','2026-06-30','Estadio Azteca, Mexico City'],
+    ['r32','r32_8','Nhất L','3rd E/H/I/J/K','2026-07-01','Mercedes-Benz Stadium, Atlanta'],
+    ['r32','r32_9','Nhất G','3rd A/E/H/I/J','2026-07-01','Lumen Field, Seattle'],
+    ['r32','r32_10','Nhất D','3rd B/E/F/I/J','2026-07-01',"Levi's Stadium, San Francisco"],
+    ['r32','r32_11','Nhất H','Nhì J','2026-07-02','SoFi Stadium, Los Angeles'],
+    ['r32','r32_12','Nhì K','Nhì L','2026-07-02','BMO Field, Toronto'],
+    ['r32','r32_13','Nhất B','3rd E/F/G/I/J','2026-07-02','BC Place, Vancouver'],
+    ['r32','r32_14','Nhì D','Nhì G','2026-07-03',"AT&T Stadium, Dallas"],
+    ['r32','r32_15','Nhất J','Nhì H','2026-07-03','Hard Rock Stadium, Miami'],
+    ['r32','r32_16','Nhất K','3rd D/E/I/J/L','2026-07-03','Arrowhead Stadium, Kansas City'],
+    ['r16','r16_1','Thắng R32-1','Thắng R32-4','2026-07-04','NRG Stadium, Houston'],
+    ['r16','r16_2','Thắng R32-2','Thắng R32-5','2026-07-04','Lincoln Financial Field, Philadelphia'],
+    ['r16','r16_3','Thắng R32-3','Thắng R32-6','2026-07-05','MetLife Stadium, New Jersey'],
+    ['r16','r16_4','Thắng R32-7','Thắng R32-8','2026-07-05','Estadio Azteca, Mexico City'],
+    ['r16','r16_5','Thắng R32-9','Thắng R32-11','2026-07-06',"AT&T Stadium, Dallas"],
+    ['r16','r16_6','Thắng R32-10','Thắng R32-13','2026-07-06','Lumen Field, Seattle'],
+    ['r16','r16_7','Thắng R32-12','Thắng R32-15','2026-07-07','Mercedes-Benz Stadium, Atlanta'],
+    ['r16','r16_8','Thắng R32-14','Thắng R32-16','2026-07-07','BC Place, Vancouver'],
+    ['qf','qf1','Thắng R16-1','Thắng R16-2','2026-07-09','Gillette Stadium, Boston'],
+    ['qf','qf2','Thắng R16-3','Thắng R16-4','2026-07-10','SoFi Stadium, Los Angeles'],
+    ['qf','qf3','Thắng R16-5','Thắng R16-6','2026-07-11','Hard Rock Stadium, Miami'],
+    ['qf','qf4','Thắng R16-7','Thắng R16-8','2026-07-11','Arrowhead Stadium, Kansas City'],
+    ['sf','sf1','Thắng TK1','Thắng TK2','2026-07-14',"AT&T Stadium, Dallas"],
+    ['sf','sf2','Thắng TK3','Thắng TK4','2026-07-15','Mercedes-Benz Stadium, Atlanta'],
+    ['3rd','3rd','Thua BK1','Thua BK2','2026-07-18','Hard Rock Stadium, Miami'],
+    ['final','final','Thắng BK1','Thắng BK2','2026-07-19','MetLife Stadium, New Jersey'],
+  ];
+  const res=gm.map(([h,a,g,dt,st],i)=>({id:'g'+(i+1),ph:'group',h,a,g,dt,st,result:null}));
+  ko.forEach(([ph,id,h,a,dt,st])=>res.push({id,ph,h,a,dt,st,result:null}));
+  return res;
+}
+
+// ── STATE ─────────────────────────────────────────────────
+let S=JSON.parse(localStorage.getItem('wc26')||'null')||{players:[],preds:{},matches:buildMatches()};
+// upgrade: ensure ko matches exist
+if(!S.matches.find(m=>m.id==='final')){
+  const fresh=buildMatches();
+  const existingKo=S.matches.filter(m=>m.ph!=='group'&&m.result);
+  S.matches=[...S.matches.filter(m=>m.ph==='group'),...fresh.filter(m=>m.ph!=='group')];
+  existingKo.forEach(em=>{const x=S.matches.find(m=>m.id===em.id);if(x)x.result=em.result;});
+}
+function save(){localStorage.setItem('wc26',JSON.stringify(S));}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).substr(2,4);}
+
+// ── NAV ───────────────────────────────────────────────────
+let curPage='dashboard';
+function goPage(p,btn){
+  document.querySelectorAll('.page').forEach(e=>e.classList.remove('on'));
+  document.querySelectorAll('.nb').forEach(e=>e.classList.remove('on'));
+  document.getElementById('page-'+p).classList.add('on');
+  if(btn)btn.classList.add('on');
+  curPage=p;render();
+}
+function render(){
+  if(curPage==='dashboard')renderDash();
+  else if(curPage==='players')renderPlayers();
+  else if(curPage==='predict')renderPredict();
+  else if(curPage==='ranking')renderRanking();
+  else if(curPage==='admin')renderAdmin();
+}
+function openM(id){document.getElementById(id).classList.add('on');}
+function closeM(id){document.getElementById(id).classList.remove('on');}
+
+// ── STATS ─────────────────────────────────────────────────
+function getPts(pid,phase){
+  let pts=0;
+  for(const m of S.matches){
+    if(m.result==null)continue;
+    if(phase==='group'&&m.ph!=='group')continue;
+    if(phase==='knockout'&&m.ph==='group')continue;
+    const pr=(S.preds[m.id]||{})[pid];
+    if(pr&&pr===m.result)pts+=PTS[m.ph]||5;
+  }
+  return pts;
+}
+function getStats(pid){
+  let ok=0,bad=0,pend=0;
+  for(const m of S.matches){
+    const pr=(S.preds[m.id]||{})[pid];
+    if(!pr)continue;
+    if(m.result==null){pend++;continue;}
+    if(pr===m.result)ok++;else bad++;
+  }
+  return{ok,bad,pend,total:ok+bad+pend};
+}
+function ranked(mode){
+  return S.players.map((p,i)=>{
+    const pts=mode==='group'?getPts(p.id,'group'):mode==='knockout'?getPts(p.id,'knockout'):getPts(p.id);
+    const st=getStats(p.id);
+    const pct=st.total>0?Math.round(st.ok/st.total*100):0;
+    return{...p,pts,st,pct,ci:i};
+  }).sort((a,b)=>mode==='pct'?b.pct-a.pct:b.pts-a.pts);
+}
+
+// ── PLAYERS ───────────────────────────────────────────────
+function addPlayer(){
+  const name=document.getElementById('np-name').value.trim();
+  if(!name)return alert('Nhập tên!');
+  S.players.push({id:uid(),name,nick:document.getElementById('np-nick').value.trim()});
+  save();closeM('m-addp');
+  document.getElementById('np-name').value='';
+  document.getElementById('np-nick').value='';
+  renderPlayers();updatePredSel();
+}
+function removePlayer(id){
+  if(!confirm('Xóa người chơi này?'))return;
+  S.players=S.players.filter(p=>p.id!==id);
+  save();renderPlayers();updatePredSel();
+}
+function updatePredSel(){
+  const sel=document.getElementById('pred-sel');
+  const cur=sel.value;
+  sel.innerHTML='<option value="">-- Chọn --</option>'+
+    S.players.map(p=>`<option value="${p.id}"${p.id===cur?' selected':''}>${p.name}</option>`).join('');
+}
+function renderPlayers(){
+  const el=document.getElementById('players-grid');
+  if(!S.players.length){el.innerHTML='<div class="empty" style="grid-column:1/-1"><div class="ei">👥</div><p>Chưa có người chơi. Nhấn "+ Thêm".</p></div>';return;}
+  el.innerHTML=S.players.map((p,i)=>{
+    const pts=getPts(p.id);const st=getStats(p.id);const pct=st.total>0?Math.round(st.ok/st.total*100):0;
+    return`<div class="pc" style="display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;align-items:center;gap:9px">
+        <div class="av" style="background:${pc(i)}">${ini(p.name)}</div>
+        <div style="flex:1"><div style="font-weight:600;font-size:13px">${p.name}</div>
+        ${p.nick?`<div style="font-size:11px;color:var(--t2)">"${p.nick}"</div>`:''}
+        <div style="font-size:10px;color:var(--t3)">${st.total} dự đoán</div></div>
+        <div style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--gold2)">${pts}</div><div style="font-size:9px;color:var(--t3)">điểm</div></div>
+      </div>
+      <div><div style="display:flex;justify-content:space-between;font-size:10px;color:var(--t2);margin-bottom:3px"><span>✅${st.ok} ❌${st.bad}</span><span>${pct}%</span></div>
+      <div class="pbar"><div class="pfill" style="width:${pct}%"></div></div></div>
+      <button class="btn bd bsm" onclick="removePlayer('${p.id}')">Xóa</button>
+    </div>`;
+  }).join('');
+}
+
+// ── PREDICT ───────────────────────────────────────────────
+let predTab='all';
+function setPredTab(t,btn){predTab=t;document.querySelectorAll('#pred-tabs .tab').forEach(b=>b.classList.remove('on'));if(btn)btn.classList.add('on');renderPredict();}
+function setPred(mid,pid,val){if(!S.preds[mid])S.preds[mid]={};S.preds[mid][pid]=val;save();renderPredict();}
+function renderPredict(){
+  const pid=document.getElementById('pred-sel').value;
+  const el=document.getElementById('pred-content');
+  if(!pid){el.innerHTML='<div class="empty"><div class="ei">👆</div><p>Chọn người chơi để dự đoán.</p></div>';return;}
+  let matches=S.matches;
+  if(predTab==='pending')matches=matches.filter(m=>!m.result);
+  else if(predTab==='done')matches=matches.filter(m=>m.result);
+  if(!matches.length){el.innerHTML='<div class="empty"><div class="ei">⚽</div><p>Không có trận nào.</p></div>';return;}
+  const byPhase={};
+  matches.forEach(m=>{const key=m.ph==='group'?'group_'+m.g:m.ph;if(!byPhase[key])byPhase[key]=[];byPhase[key].push(m);});
+  const order=['group_A','group_B','group_C','group_D','group_E','group_F','group_G','group_H','group_I','group_J','group_K','group_L','r32','r16','qf','sf','3rd','final'];
+  let html='';
+  for(const key of order){
+    if(!byPhase[key])continue;
+    const isG=key.startsWith('group_');const letter=isG?key.split('_')[1]:'';
+    const label=isG?`Bảng ${letter} — ${GRPS[letter].map(t=>fl(t)+t).join(' · ')}`:PH[key]||key;
+    html+=`<div style="margin-bottom:16px"><div style="font-size:11px;color:var(--t3);font-weight:600;margin-bottom:7px;text-transform:uppercase;letter-spacing:.5px">${label}</div>${byPhase[key].map(m=>predCard(m,pid)).join('')}</div>`;
+  }
+  el.innerHTML=html;
+}
+function predCard(m,pid){
+  const pred=(S.preds[m.id]||{})[pid];
+  const isKO=m.ph!=='group';const hasRes=m.result!=null;
+  const correct=hasRes&&pred&&pred===m.result;const pts=PTS[m.ph]||5;
+  const rl={home:m.h,draw:'Hòa',away:m.a};
+  const phCls={'group':'bacc','r32':'bwarn','r16':'bwarn','qf':'bpur','sf':'bpink','3rd':'bgold','final':'bgold'};
+  let badge='';
+  if(hasRes){if(pred&&correct)badge=`<span class="bx bok">✅+${pts}đ</span>`;else if(pred)badge=`<span class="bx berr">❌Sai</span>`;else badge=`<span class="bx bgray">Không dự đoán</span>`;}
+  return`<div class="mc" style="${hasRes?'opacity:.82':''}">
+    <div class="mh"><span class="bx ${phCls[m.ph]||'bgray'}">${PH[m.ph]||m.ph}</span>${badge}<span class="mdt">${m.dt?new Date(m.dt+'T12:00:00').toLocaleDateString('vi-VN',{day:'2-digit',month:'2-digit'}):''} · ${m.st||''}</span></div>
+    <div class="mteams" style="margin-bottom:${hasRes?'4px':'9px'}">
+      <div class="tn home">${fl(m.h)} ${m.h}</div><div class="mvs">VS</div><div class="tn away">${m.a} ${fl(m.a)}</div>
+    </div>
+    ${hasRes?`<div style="text-align:center;font-size:11px;color:var(--t2);margin-bottom:5px">KQ: <strong style="color:var(--gold2)">${rl[m.result]}</strong>${pred?` · Bạn đoán: <strong style="color:${correct?'var(--ok)':'var(--err)'}">${rl[pred]}</strong>`:''}</div>`:''}
+    ${!hasRes?`<div class="pbtns">
+      <button class="pb ${pred==='home'?'sh':''}" onclick="setPred('${m.id}','${pid}','home')">${fl(m.h)} ${m.h}</button>
+      ${!isKO?`<button class="pb ${pred==='draw'?'sd':''}" onclick="setPred('${m.id}','${pid}','draw')">⚖️ Hòa</button>`:''}
+      <button class="pb ${pred==='away'?'sa':''}" onclick="setPred('${m.id}','${pid}','away')">${m.a} ${fl(m.a)}</button>
+    </div>${pred?`<div style="text-align:center;font-size:10px;color:var(--t3);margin-top:5px">Đã chọn: <strong style="color:var(--gold2)">${rl[pred]}</strong> (+${pts}đ nếu đúng)</div>`:'<div style="text-align:center;font-size:10px;color:var(--t3);margin-top:3px">Chưa dự đoán</div>'}
+    `:''}
+  </div>`;
+}
+
+// ── RANKING ───────────────────────────────────────────────
+let rankTab='overall';
+function setRankTab(t,btn){rankTab=t;document.querySelectorAll('#page-ranking .tab').forEach(b=>b.classList.remove('on'));if(btn)btn.classList.add('on');renderRanking();}
+function renderRanking(){
+  const r=ranked(rankTab);const el=document.getElementById('rank-content');
+  if(!r.length){el.innerHTML='<div class="empty"><div class="ei">👥</div><p>Chưa có người chơi.</p></div>';return;}
+  const maxV=Math.max(...r.map(p=>rankTab==='pct'?p.pct:p.pts),1);
+  el.innerHTML=`<div class="card"><table><thead><tr><th style="width:32px">Hạng</th><th>Người chơi</th><th>Đúng</th><th>Sai</th><th>${rankTab==='pct'?'Tỷ lệ':'Điểm'}</th><th style="width:110px">Bar</th></tr></thead><tbody>
+  ${r.map((p,i)=>{
+    const icon=i===0?'🥇':i===1?'🥈':i===2?'🥉':(i+1)+'';
+    const val=rankTab==='pct'?p.pct+'%':p.pts;
+    const pct2=rankTab==='pct'?p.pct:Math.round(p.pts/maxV*100);
+    return`<tr><td style="font-family:'Bebas Neue',sans-serif;font-size:${i<3?'20':'15'}px;color:${i===0?'var(--gold2)':i===1?'#c0c0c0':i===2?'#cd7f32':'var(--t2)'}">${icon}</td>
+    <td><div style="display:flex;align-items:center;gap:8px"><div class="av" style="background:${pc(p.ci)};width:30px;height:30px;font-size:12px">${ini(p.name)}</div>
+    <div><div style="font-weight:600;font-size:13px">${p.name}</div>${p.nick?`<div style="font-size:10px;color:var(--t3)">${p.nick}</div>`:''}</div></div></td>
+    <td><span class="bx bok">${p.st.ok}</span></td><td><span class="bx berr">${p.st.bad}</span></td>
+    <td><strong style="font-family:'Bebas Neue',sans-serif;font-size:19px;color:var(--gold2)">${val}</strong></td>
+    <td><div class="pbar"><div class="pfill ${i===0?'gold':''}" style="width:${pct2}%"></div></div></td></tr>`;
+  }).join('')}</tbody></table></div>`;
+
+  const gD=S.matches.filter(m=>m.ph==='group'&&m.result).length;
+  const gT=S.matches.filter(m=>m.ph==='group').length;
+  const pEl=document.getElementById('prize-content');
+  const gR=ranked('group');
+  if(!gT){pEl.innerHTML='<p class="tm">Chưa có trận vòng bảng.</p>';return;}
+  pEl.innerHTML=`<div style="font-size:12px;color:var(--t2);margin-bottom:9px">Vòng bảng: ${gD}/${gT} trận (${Math.round(gD/gT*100)}%) đã có KQ</div>
+  ${gD<gT?`<div class="alert aw">⏳ Vòng bảng chưa kết thúc (còn ${gT-gD} trận)</div>`:'<div class="alert as2">✅ Vòng bảng hoàn thành!</div>'}
+  ${gR.slice(0,3).map((p,i)=>{
+    const cls=['tr1','tr2','tr3'],icons=['🥇','🥈','🥉'];
+    return`<div class="trow ${cls[i]}"><div style="font-size:20px;width:28px">${icons[i]}</div>
+    <div style="flex:1;font-weight:600">${p.name}${p.nick?` <span style="font-size:10px;color:var(--t3)">"${p.nick}"</span>`:''}</div>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--gold2)">${p.pts}đ</div></div>`;
+  }).join('')}`;
+}
+
+// ── ADMIN ─────────────────────────────────────────────────
+let adminTab='group';
+function setAdminTab(t,btn){adminTab=t;document.querySelectorAll('#admin-tabs .tab').forEach(b=>b.classList.remove('on'));if(btn)btn.classList.add('on');renderAdmin();}
+function renderAdmin(){
+  const el=document.getElementById('admin-content');
+  const phase=adminTab==='final'?['3rd','final']:[adminTab];
+  const matches=S.matches.filter(m=>phase.includes(m.ph));
+  if(!matches.length){el.innerHTML='<div class="empty"><div class="ei">⚽</div><p>Không có trận nào.</p></div>';return;}
+  if(adminTab==='group'){
+    const byG={};matches.forEach(m=>{if(!byG[m.g])byG[m.g]=[];byG[m.g].push(m);});
+    el.innerHTML=Object.entries(byG).sort().map(([g,ms])=>`<div class="gsect"><div class="ghead"><span class="gtitle">Bảng ${g}</span><span class="gteams">${GRPS[g].map(t=>fl(t)+' '+t).join(' · ')}</span></div><div style="padding:9px">${ms.map(adminRow).join('')}</div></div>`).join('');
+  } else {
+    el.innerHTML=`<div class="card">${matches.map(adminRow).join('')}</div>`;
+  }
+}
+function adminRow(m){
+  const rl={home:m.h,draw:'Hòa',away:m.a};
+  const pc2=S.players.filter(p=>(S.preds[m.id]||{})[p.id]).length;
+  return`<div style="display:flex;align-items:center;gap:9px;padding:8px 0;border-bottom:1px solid var(--b)">
+    <div style="flex:1"><div style="font-weight:600;font-size:13px">${fl(m.h)} ${m.h} <span style="color:var(--t3);font-weight:400">vs</span> ${m.a} ${fl(m.a)}</div>
+    <div style="font-size:10px;color:var(--t2)">${m.dt?new Date(m.dt+'T12:00:00').toLocaleDateString('vi-VN',{day:'2-digit',month:'2-digit',year:'numeric'}):''} · ${pc2}/${S.players.length} dự đoán · ${m.st||''}</div></div>
+    ${m.result?`<span class="bx bok">✓ ${rl[m.result]}</span><button class="btn bs bsm" onclick="openUpdateModal('${m.id}')">Sửa</button>`:`<button class="btn bg2 bsm" onclick="openUpdateModal('${m.id}')">Cập nhật KQ</button>`}
+  </div>`;
+}
+
+// ── UPDATE RESULT ─────────────────────────────────────────
+let pendingRes=null;
+function openUpdateModal(mid){
+  const m=S.matches.find(x=>x.id===mid);
+  S.curMatch=mid;pendingRes=m.result||null;
+  const isKO=m.ph!=='group';const rl={home:m.h,draw:'Hòa',away:m.a};
+  document.getElementById('m-res-body').innerHTML=`
+    <div style="text-align:center;margin-bottom:16px">
+      <div style="font-size:16px;font-weight:600;color:white">${fl(m.h)} ${m.h} vs ${m.a} ${fl(m.a)}</div>
+      <div style="font-size:10px;color:var(--t2);margin-top:3px">${m.dt||''} · ${m.st||''}</div>
+      <span class="bx bacc" style="margin-top:5px;display:inline-block">${PH[m.ph]||m.ph}</span>
+    </div>
+    <div class="fg"><label>Kết quả thực tế</label>
+    <div class="pbtns">
+      <button class="pb ${pendingRes==='home'?'sh':''}" id="rb-home" onclick="selRes('home')">${fl(m.h)} ${m.h} thắng</button>
+      ${!isKO?`<button class="pb ${pendingRes==='draw'?'sd':''}" id="rb-draw" onclick="selRes('draw')">⚖️ Hòa</button>`:''}
+      <button class="pb ${pendingRes==='away'?'sa':''}" id="rb-away" onclick="selRes('away')">${m.a} ${fl(m.a)} thắng</button>
+    </div>
+    <div id="res-info" style="text-align:center;font-size:11px;color:var(--t2);margin-top:6px">${m.result?`Hiện tại: <strong style="color:var(--gold2)">${rl[m.result]}</strong>. Chọn lại để thay đổi.`:'Chưa có kết quả'}</div></div>`;
+  openM('m-res');
+}
+function selRes(val){
+  const m=S.matches.find(x=>x.id===S.curMatch);
+  pendingRes=val;
+  ['home','draw','away'].forEach(r=>{const b=document.getElementById('rb-'+r);if(b)b.className='pb';});
+  const cls={home:'pb sh',draw:'pb sd',away:'pb sa'};
+  const b=document.getElementById('rb-'+val);if(b)b.className=cls[val];
+  const rl={home:m.h,draw:'Hòa',away:m.a};
+  document.getElementById('res-info').innerHTML=`Đã chọn: <strong style="color:var(--gold2)">${rl[val]}</strong>`;
+}
+function saveResult(){
+  if(!pendingRes)return alert('Chưa chọn kết quả!');
+  const m=S.matches.find(x=>x.id===S.curMatch);
+  m.result=pendingRes;pendingRes=null;save();closeM('m-res');
+  const corr=S.players.filter(p=>(S.preds[m.id]||{})[p.id]===m.result).length;
+  alert(`✅ Đã cập nhật! ${corr}/${S.players.length} người đoán đúng trận này.`);
+  render();
+}
+
+// ── DASHBOARD ─────────────────────────────────────────────
+function renderDash(){
+  const done=S.matches.filter(m=>m.result).length;
+  const totalPreds=Object.values(S.preds).reduce((a,o)=>a+Object.keys(o).length,0);
+  document.getElementById('d-stats').innerHTML=`
+    <div class="sc"><div class="n">${S.players.length}</div><div class="l">Người tham gia</div></div>
+    <div class="sc"><div class="n">${S.matches.filter(m=>m.ph==='group').length}</div><div class="l">Trận vòng bảng</div></div>
+    <div class="sc"><div class="n">${done}</div><div class="l">Đã có kết quả</div></div>
+    <div class="sc"><div class="n">${totalPreds}</div><div class="l">Lượt dự đoán</div></div>`;
+  const r=ranked('overall');
+  const t3=document.getElementById('d-top3');
+  if(!r.length)t3.innerHTML='<p class="tm">Chưa có người chơi.</p>';
+  else t3.innerHTML=r.slice(0,3).map((p,i)=>{
+    const icons=['🥇','🥈','🥉'],cls=['tr1','tr2','tr3'];
+    return`<div class="trow ${cls[i]}" style="margin-bottom:6px"><div style="font-size:18px;width:26px">${icons[i]}</div>
+    <div class="av" style="background:${pc(p.ci)};width:30px;height:30px;font-size:11px">${ini(p.name)}</div>
+    <div style="flex:1;font-weight:600;font-size:13px">${p.name}</div>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:21px;color:var(--gold2)">${p.pts}</div></div>`;
+  }).join('');
+  const upcoming=S.matches.filter(m=>!m.result&&m.dt).sort((a,b)=>a.dt.localeCompare(b.dt)).slice(0,5);
+  const uEl=document.getElementById('d-upcoming');
+  if(!upcoming.length)uEl.innerHTML='<p class="tm">Không có trận sắp tới.</p>';
+  else uEl.innerHTML=upcoming.map(m=>`<div style="padding:7px 0;border-bottom:1px solid var(--b)"><div style="font-weight:600;font-size:12px">${fl(m.h)} ${m.h} vs ${m.a} ${fl(m.a)}</div><div style="font-size:10px;color:var(--t2)">${PH[m.ph]} · ${m.dt?new Date(m.dt+'T12:00:00').toLocaleDateString('vi-VN',{day:'2-digit',month:'2-digit'}):''} · ${m.st||''}</div></div>`).join('');
+  const phases=[{label:'Vòng bảng',ms:S.matches.filter(m=>m.ph==='group')},{label:'Vòng loại trực tiếp',ms:S.matches.filter(m=>m.ph!=='group')}];
+  document.getElementById('d-prog').innerHTML=phases.map(ph=>{
+    if(!ph.ms.length)return'';
+    const d=ph.ms.filter(m=>m.result).length,t=ph.ms.length,pct=Math.round(d/t*100);
+    return`<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:11px;color:var(--t2);margin-bottom:3px"><span>${ph.label}</span><span>${d}/${t} (${pct}%)</span></div><div class="pbar" style="height:7px"><div class="pfill" style="width:${pct}%"></div></div></div>`;
+  }).join('')||'<p class="tm">Chưa có trận nào.</p>';
+}
+
+// ── INIT ──────────────────────────────────────────────────
+updatePredSel();renderDash();
+</script>
+</body>
+</html>
